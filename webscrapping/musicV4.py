@@ -1,6 +1,6 @@
 import PySimpleGUI as sg
 
-#layout==-==-==-==-==-==-
+#layout==-==-==-==-==-==-==-==-
 sg.theme('DarkAmber')
 layout = [
 
@@ -9,7 +9,7 @@ layout = [
             [sg.Button('Baixar')]
 
     ]
-#janela==-==-==-==-==-==-==-
+#janela==-==-==-==-==-==-==-==-
 janela = sg.Window('Download Music', layout)
 
 #eventos==-==-==-==-==-==-==-==-

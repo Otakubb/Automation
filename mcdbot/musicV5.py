@@ -86,7 +86,7 @@ while True:
 
                 shutil.move(original.target)
         elif sis == 'Windows':
-            original = 'C:\Users\{}\Downloads\downloaded_music\{}.m4a'.format(user, search.title)
-            target = 'C:\Users\{}\Music'.format(user)
+            original = (r'C:\Users\{}\Downloads\downloaded_music\{}.m4a').format(user, search.title)
+            target = (r'C:\Users\{}\Music').format(user)
 
             shutil.move(original.target)

@@ -4,13 +4,6 @@ from PySimpleGUI.PySimpleGUI import Checkbox
 
 #layout==-==-==-==-==-==-
 sg.theme('DarkAmber')
-
-from tkinter import Checkbutton
-import PySimpleGUI as sg
-from PySimpleGUI.PySimpleGUI import Checkbox
-
-#layout==-==-==-==-==-==-
-sg.theme('DarkAmber')
 layout = [
 
             [sg.Text('Idioma do seu pc:')],
@@ -76,18 +69,32 @@ while True:
          
         if sis == 'Linux' :
             if valores['pt'] == True:
-                original = '/home/{}/Transferências/downloaded_music/{}.m4a'.format(user, search.title)
-                target = '/home/{}/Music'.format(user)
+                try:
+                    original = '/home/{}/downloaded_music/{}.m4a'.format(user, search.title)
+                    target = '/home/{}/Música'.format(user)
 
-                shutil.move(original.target)
+                    shutil.move(original,target)
+                except:
+                    original = '/home/{}/Transferências/downloaded_music/{}.m4a'.format(user, search.title)
+                    target = '/home/{}/Música'.format(user)
+
+                    shutil.move(original,target)
+
             elif valores['eng'] == True:
-                original = '/home/{}/Downloads/downloaded_music/{}.m4a'.format(user, search.title)
-                target = '/home/{}/Music'.format(user)
+                try:
+                    original = '/home/{}/downloaded_music/{}.m4a'.format(user, search.title)
+                    target = '/home/{}/Music'.format(user)
 
-                shutil.move(original.target)
+                    shutil.move(original,target)
+                except:
+                    original = '/home/{}/Downloads/downloaded_music/{}.m4a'.format(user, search.title)
+                    target = '/home/{}/Music'.format(user)
+
+                    shutil.move(original,target)
+                    
         elif sis == 'Windows':
             
-            original = (r'C:\Users\{}\Downloads\downloaded_music\{}.m4a').format(user, search.title)
-            target = (r'C:\Users\{}\Music').format(user)
+            original = r'C:\Users\{}\Downloads\downloaded_music\{}.m4a'.format(user, search.title)
+            target = r'C:\Users\{}\Music'.format(user)
 
-            shutil.move(original.target)
+            shutil.move(original,target)

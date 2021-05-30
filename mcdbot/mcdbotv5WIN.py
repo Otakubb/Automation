@@ -1,6 +1,13 @@
+#este ficheiro tem de estar localizaado em transferencias para funcionar
 from tkinter import Checkbutton
 import PySimpleGUI as sg
 from PySimpleGUI.PySimpleGUI import Checkbox
+import os
+import platform
+import getpass
+import shutil
+
+user = getpass.getuser()
 
 #layout==-==-==-==-==-==-
 sg.theme('DarkAmber')
@@ -14,11 +21,11 @@ layout = [
 
             [sg.Button('Baixar')],
 
-            [sg.Text('Se pretender baixar mais que uma música,\nreinicie o aplicativo a cada download')]
+            [sg.Text('Se pretender baixar mais que uma música,\nreescreva no campo "música"')]
 
         ]
 #janela==-==-==-==-==-==-==-
-janela = sg.Window('Download Music', layout)
+janela = sg.Window('Download Music', layout,  icon=r'C:\Users\{}\Dowloads\mcdbotWin\Logo2.png'.format(user))
 
 #eventos==-==-==-==-==-==-==-==-
 while True:
@@ -56,45 +63,12 @@ while True:
         valores['musica'] == str(valores['musica']).replace(' ','+')
         
         search(valores['musica'])
-        
-
-        import os
-        import platform
-        import getpass
-        import shutil
-
-        user = getpass.getuser()
 
         sis = str(platform.platform()).replace('-', ' ').split()[0]
-         
-        if sis == 'Linux' :
-            if valores['pt'] == True:
-                try:
-                    original = '/home/{}/downloaded_music/{}.m4a'.format(user, search.title)
-                    target = '/home/{}/Música'.format(user)
-
-                    shutil.move(original,target)
-                except:
-                    original = '/home/{}/Transferências/downloaded_music/{}.m4a'.format(user, search.title)
-                    target = '/home/{}/Música'.format(user)
-
-                    shutil.move(original,target)
-
-            elif valores['eng'] == True:
-                try:
-                    original = '/home/{}/downloaded_music/{}.m4a'.format(user, search.title)
-                    target = '/home/{}/Music'.format(user)
-
-                    shutil.move(original,target)
-                except:
-                    original = '/home/{}/Downloads/downloaded_music/{}.m4a'.format(user, search.title)
-                    target = '/home/{}/Music'.format(user)
-
-                    shutil.move(original,target)
-                    
-        elif sis == 'Windows':
+                     
+        if sis == 'Windows':
             
-            original = r'C:\Users\{}\Downloads\downloaded_music\{}.m4a'.format(user, search.title)
+            original = r'C:\Users\{}\Downloads\mcdbotWin\downloaded_music\{}.m4a'.format(user, search.title)
             target = r'C:\Users\{}\Music'.format(user)
 
             shutil.move(original,target)

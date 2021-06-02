@@ -25,10 +25,8 @@ layout = [
 
         ]
 #janela==-==-==-==-==-==-==-
-try:
-    janela = sg.Window('Download Music', layout,  icon='/home/{}/Transferências/mcdbotLin/Logo2.png'.format(user))
-except:
-   janela = sg.Window('Download Music', layout,  icon='/home/{}/Downloads/mcdbotLin/Logo2.png'.format(user))
+janela = sg.Window('Download Music', layout,  icon='Logo2.png')
+
 #eventos==-==-==-==-==-==-==-==-
 while True:
     eventos, valores = janela.read()

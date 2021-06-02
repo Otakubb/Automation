@@ -25,7 +25,7 @@ layout = [
 
         ]
 #janela==-==-==-==-==-==-==-
-janela = sg.Window('Download Music', layout,  icon=r'C:\Users\{}\Dowloads\mcdbotWin\Logo2.png'.format(user))
+janela = sg.Window('Download Music', layout,  icon='Logo2.png')
 
 #eventos==-==-==-==-==-==-==-==-
 while True:
